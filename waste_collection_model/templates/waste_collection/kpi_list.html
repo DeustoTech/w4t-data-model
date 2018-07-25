@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<ul>
+{% for kpi in object_list %}
+    <li>{{ kpi.pk }} {{ kpi.name }}</li>
+{% empty %}
+    <li>No  Key Performance Index.</li>
+{% endfor %}
+</ul>
+{% endblock %}
+

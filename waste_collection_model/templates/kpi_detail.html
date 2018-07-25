@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load orion %}
+{% load bootstrap4 %}
+{% block content %}
+    <article class="card OrionElement kpi">
+    <div class="card-body">
+        <h7 class="card-title">{{ object.pk }}</h7>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"> {% orion_display object.name %} </li>
+            <li class="list-group-item">{{ object.name }}</li>
+        </ul>
+    </div>
+    </article>
+{% endblock %}

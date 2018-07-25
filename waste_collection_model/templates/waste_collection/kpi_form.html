@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load orion %}
+{% load bootstrap4 %}
+{% block content %}
+    <article class="card OrionElement kpi">
+        <form action="" method="post">{% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Save" />
+        </form>
+    </article>
+{% endblock %}
