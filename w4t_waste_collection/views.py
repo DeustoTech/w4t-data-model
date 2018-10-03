@@ -2,7 +2,7 @@ from django import forms
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView, CreateView
 
-from waste_collection_model.models.kpi import KPI
+from w4t_waste_collection.models.kpi import KPI
 
 
 # Create your views here.

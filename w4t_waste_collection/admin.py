@@ -1,9 +1,5 @@
 from django.contrib import admin
-from django.contrib.postgres import fields
-from django_json_widget.widgets import JSONEditorWidget
-
-
-from waste_collection_model.models.waste_characterizations import Waste, WasteCategory, SortingType, WasteManagementStage
+from w4t_waste_collection.models.waste_characterizations import Waste, WasteCategory, SortingType, WasteManagementStage
 
 
 @admin.register(Waste)

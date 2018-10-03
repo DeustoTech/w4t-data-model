@@ -8,7 +8,7 @@ class WasteManagementStage(OrionEntity):
 
     class Meta:
         """ This made available to declare model in models package instead of models.py"""
-        app_label = 'waste_collection_model'
+        app_label = 'w4t_waste_collection'
 
     name = OrionCharField("name", max_length=1024, blank=True)
     description = OrionTextField("description", max_length=1024, blank=True)
@@ -21,7 +21,7 @@ class WasteCategory(OrionEntity):
 
     class Meta:
         """ This made available to declare model in models package instead of models.py"""
-        app_label = 'waste_collection_model'
+        app_label = 'w4t_waste_collection'
 
     name = OrionCharField("name", max_length=1024, blank=True)
     description = OrionTextField("description", max_length=1024, blank=True)
@@ -39,7 +39,7 @@ class Waste(OrionEntity):
 
     class Meta:
         """ This made available to declare model in models package instead of models.py"""
-        app_label = 'waste_collection_model'
+        app_label = 'w4t_waste_collection'
 
     name = OrionCharField("name", max_length=1024, blank=True)
     description = OrionTextField("description", max_length=1024, blank=True)
@@ -54,7 +54,7 @@ class SortingType(OrionEntity):
 
     class Meta:
         """ This made available to declare model in models package instead of models.py"""
-        app_label = 'waste_collection_model'
+        app_label = 'w4t_waste_collection'
 
     name = OrionCharField("name", max_length=1024, blank=True)
     description = OrionTextField("description", max_length=1024, blank=True)
