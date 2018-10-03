@@ -6,7 +6,7 @@ https://github.com/pypa/sampleproject
 """
 
 # Always prefer setuptools over distutils
-from setuptools import setup
+from setuptools import setup,find_packages
 # To use a consistent encoding
 from codecs import open
 from os import path
@@ -37,6 +37,6 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
 
-    packages=['w4t_waste_collection'],
+    packages=find_packages(),
     install_requires=['django-orion-model'],
 )
