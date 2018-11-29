@@ -2,7 +2,7 @@
 """
 from logging import getLogger
 from django_orion_model.models import OrionEntity, OrionCharField, OrionTextField, OrionFloatField, OrionDateTimeField,\
-    OrionIntegerField, OrionURLField, FamilyOrionEntity, OrionJSONField, OrionDecimalField
+    OrionIntegerField, OrionURLField, FamilyOrionEntity, OrionJSONField, OrionDecimalField, OrionCoordinatesField
 
 
 logger = getLogger(__name__)
@@ -29,6 +29,7 @@ class DepositPointType(Agent):
         app_label = 'w4t_waste_collection'
 
     """Model of the collection point that determine common properties of some collection point"""
+    coordinates = OrionCoordinatesField()
     name = OrionCharField(max_length=1024)
     # Set to to Reference
     # refInputs = OrionCharField()
@@ -38,6 +39,7 @@ class DepositPointType(Agent):
     height = OrionFloatField(blank=True)
     deep = OrionFloatField(blank=True)
     weight = OrionFloatField(blank=True)
+    location = OrionCoordinatesField(blank=True)
     cargoVolume = OrionFloatField(blank=True)
     maximumLoad = OrionFloatField(blank=True)
     recommendedLoad = OrionFloatField(blank=True)
@@ -77,8 +79,8 @@ class DepositPointIsle(Agent):
     DepositPointIsle level where there are more than one DepositPoint in a place and users tend to use them
     indifferently resulting in irregular measurements"""
 
-    location = OrionCharField(max_length=1024)
-    address = OrionTextField(blank=True, max_length=1024)
+    location = OrionCoordinatesField(blank=True,)
+    address = OrionTextField(blank=True,max_length=1024)
     name = OrionCharField(max_length=1024)
     description = OrionTextField(blank=True)
     features = OrionTextField(blank=True)
@@ -99,13 +101,13 @@ class DepositPoint(Agent):
     collection centers, etc."""
 
     ORION_TYPE = "DepositPoint"
-    serialNumber = OrionCharField(max_length=1024)
+    serialNumber = OrionCharField(verbose_name="serial number", max_length=1024)
     refSortingType = OrionCharField(max_length=1024)
 
     description = OrionTextField(blank=True)
     refType = OrionCharField(max_length=1024)
     storedWasteOrigin = OrionCharField(blank=True, max_length=1024)
-    location = OrionJSONField()
+    location = OrionCoordinatesField(blank=True)
     address = OrionTextField(blank=True)
     fillingLevel = OrionDecimalField(max_digits=2, decimal_places=1, blank=True)
     cargoWeight = OrionFloatField(blank=True)
