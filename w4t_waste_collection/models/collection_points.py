@@ -22,6 +22,17 @@ class AgentType(FamilyOrionEntity):
         abstract = True
 
 
+class KeyPerformanceIndicator(Agent):
+
+    class Meta:
+        """ This made available to declare model in models package instead of models.py"""
+        app_label = 'w4t_waste_collection'
+
+    """Model of the collection point that determine common properties of some collection point"""
+    name = OrionCharField(max_length=1024)
+    kpiValue = OrionFloatField(blank=True)
+
+
 class DepositPointType(Agent):
 
     class Meta:
