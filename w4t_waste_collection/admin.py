@@ -1,22 +1,17 @@
 from django.contrib import admin
-from w4t_waste_collection.models.waste_characterizations import Waste, WasteCategory, SortingType, WasteManagementStage
+from w4t_waste_collection.models.waste_characterizations import Resource, ResourceCategory, SortingType
 
 
-@admin.register(Waste)
+@admin.register(Resource)
 class StrategyAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description', 'waste_code')
+    pass
 
 
-@admin.register(WasteCategory)
+@admin.register(ResourceCategory)
 class StrategyAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description')
+    pass
 
 
 @admin.register(SortingType)
 class StrategyAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description', 'regulation', 'color', 'annotations', 'area_served')
-
-
-@admin.register(WasteManagementStage)
-class WasteManagementStageAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description')
+    pass

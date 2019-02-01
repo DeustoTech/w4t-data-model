@@ -1,56 +1,22 @@
 """ Models to manage the Waste Collection points
 """
 from logging import getLogger
-from django_orion_model.models import OrionEntity, OrionCharField, OrionTextField, OrionFloatField, OrionDateTimeField,\
-    OrionIntegerField, OrionURLField, FamilyOrionEntity, OrionJSONField, OrionDecimalField, OrionCoordinatesField
-
+from django_orion_model.fields import OrionIntegerField, OrionURLField, OrionCharField, OrionTextField, \
+    OrionFloatField, OrionDateTimeField, OrionDecimalField, OrionCoordinatesField, OrionRefList, OrionRef
+from w4t_waste_collection.models.entities import Agent, AgentType
 
 logger = getLogger(__name__)
 
-
-class Agent(FamilyOrionEntity):
-    FAMILY = "Agent"
-
-    class Meta:
-        abstract = True
+# TODO Add help_text
+# see https://docs.google.com/spreadsheets/d/1MVyxWl5L1tBCtA_oq0JRv2w77Ijybfyn2aNmjPl9Csk/edit#gid=547597585
 
 
-class AgentType(FamilyOrionEntity):
-    FAMILY = "AgentType"
-
-    class Meta:
-        abstract = True
-
-
-class KeyPerformanceIndicator(Agent):
-
-    class Meta:
-        """ This made available to declare model in models package instead of models.py"""
-        app_label = 'w4t_waste_collection'
-
+class DepositPointType(AgentType):
     """Model of the collection point that determine common properties of some collection point"""
-    name = OrionCharField(max_length=1024)
-    kpiValue = OrionFloatField(blank=True)
-
-
-class DepositPointType(Agent):
-
-    class Meta:
-        """ This made available to declare model in models package instead of models.py"""
-        app_label = 'w4t_waste_collection'
-
-    """Model of the collection point that determine common properties of some collection point"""
-    coordinates = OrionCoordinatesField()
-    name = OrionCharField(max_length=1024)
-    # Set to to Reference
-    # refInputs = OrionCharField()
-    # Set to to Reference
-    # refOutputs = OrionCharField()
     width = OrionFloatField(blank=True)
     height = OrionFloatField(blank=True)
     deep = OrionFloatField(blank=True)
     weight = OrionFloatField(blank=True)
-    location = OrionCoordinatesField(blank=True)
     cargoVolume = OrionFloatField(blank=True)
     maximumLoad = OrionFloatField(blank=True)
     recommendedLoad = OrionFloatField(blank=True)
@@ -91,16 +57,11 @@ class DepositPointIsle(Agent):
     indifferently resulting in irregular measurements"""
 
     location = OrionCoordinatesField(blank=True,)
-    address = OrionTextField(blank=True,max_length=1024)
-    name = OrionCharField(max_length=1024)
+    address = OrionTextField(blank=True, max_length=1024)
     description = OrionTextField(blank=True)
     features = OrionTextField(blank=True)
-    # TODO TALK THIS TO ANDER
-#     @property
-#     def refCollectionPoints(self):
-#         return self.collectionpoint_set.all()
-#
 
+    refDepositPoints = OrionRefList()
     areaServed = OrionCharField(blank=True, max_length=1024)
     dateModified = OrionDateTimeField(blank=True)
     dateCreated = OrionDateTimeField(blank=True)
@@ -111,15 +72,11 @@ class DepositPoint(Agent):
     such as a personal plastic bag (in door2door systems), pneumatic waste dumpsters, fixed collection centers,mobile
     collection centers, etc."""
 
-    ORION_TYPE = "DepositPoint"
-    serialNumber = OrionCharField(verbose_name="serial number", max_length=1024)
-    refSortingType = OrionCharField(max_length=1024)
+    serialNumber = OrionCharField(blank=True, max_length=1024)
 
-    description = OrionTextField(blank=True)
-    refType = OrionCharField(max_length=1024)
+    refSortingType = OrionRef()
+    description = OrionTextField(blank=True,)
     storedWasteOrigin = OrionCharField(blank=True, max_length=1024)
-    location = OrionCoordinatesField(blank=True)
-    address = OrionTextField(blank=True)
     fillingLevel = OrionDecimalField(max_digits=2, decimal_places=1, blank=True)
     cargoWeight = OrionFloatField(blank=True)
     temperature = OrionFloatField(blank=True)
@@ -145,5 +102,4 @@ class DepositPoint(Agent):
     annotations = OrionTextField(blank=True)
     areaServed = OrionCharField(blank=True, max_length=1024)
     dateModified = OrionDateTimeField(blank=True)
-    refDevice = OrionCharField(blank=True, max_length=1024)
-
+    refDevice = OrionRef(blank=True)
