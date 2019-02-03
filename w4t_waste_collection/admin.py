@@ -3,15 +3,15 @@ from w4t_waste_collection.models.waste_characterizations import Resource, Resour
 
 
 @admin.register(Resource)
-class StrategyAdmin(admin.ModelAdmin):
+class ResourceAdmin(admin.ModelAdmin):
     pass
 
 
 @admin.register(ResourceCategory)
-class StrategyAdmin(admin.ModelAdmin):
+class ResourceCategoryAdmin(admin.ModelAdmin):
     pass
 
 
 @admin.register(SortingType)
-class StrategyAdmin(admin.ModelAdmin):
+class SortingTypeAdmin(admin.ModelAdmin):
     pass
