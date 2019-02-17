@@ -28,6 +28,10 @@ class Action(OrionEntity):
     refWasteStages = OrionRef(help_text="")
     refWasteStreams = OrionRefList(help_text="")
 
+    @property
+    def strategy(self):
+        return self.orion_service_path.collect(Strategy, self.refStrategy.split(":")[1])[0].name
+
 
 class Strategy(OrionEntity):
     name = OrionCharField(max_length=1024)
@@ -44,3 +48,6 @@ class Strategy(OrionEntity):
     refWasteStages = OrionRefList()
     refWasteStreams = OrionRefList()
     resultsFeedback = OrionTextField()
+
+
+
