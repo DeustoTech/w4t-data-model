@@ -1,5 +1,7 @@
+from django.utils.safestring import SafeString
+
 from django_orion_model.fields import OrionCharField, OrionTextField, OrionDecimalField, \
-    OrionDateTimeField, OrionBooleanField, OrionRef, OrionRefList, OrionURLField
+    OrionDateTimeField, OrionBooleanField, OrionRef, OrionRefList, OrionURLField, OrionIntegerField
 from django_orion_model.models import OrionEntity
 
 
@@ -27,10 +29,28 @@ class Action(OrionEntity):
     trainingTools = OrionTextField(help_text="")
     refWasteStages = OrionRef(help_text="")
     refWasteStreams = OrionRefList(help_text="")
+    url = OrionURLField()
+
+    @property
+    def url_link(self):
+        return SafeString('<a href="' + self.url + '" >View</a>')
 
     @property
     def strategy(self):
-        return self.orion_service_path.collect(Strategy, self.refStrategy.split(":")[1])[0].name
+        strategies = {
+            "1": "General sensitization Campaign",
+            "2": "Education Centers Actions",
+            "3": "Food Waste Prevention Campaign",
+
+            "4": "Commercial Activities Campaign",
+            "5": "Composting",
+            "6": "PAYT",
+            "7": "Zero Waste Ecosystems",
+            "23": "Zero Waste Events",
+            "8": "Miscellaneous"
+        }
+        
+        return strategies[self.refStrategy.split(":")[1]]
 
 
 class Strategy(OrionEntity):
@@ -48,6 +68,19 @@ class Strategy(OrionEntity):
     refWasteStages = OrionRefList()
     refWasteStreams = OrionRefList()
     resultsFeedback = OrionTextField()
+
+
+class SortingGameUserMetrics(OrionEntity):
+
+    age = OrionIntegerField()
+    allTimeLevelsPlayed = OrionIntegerField()
+    countryISO = OrionCharField(max_length=10)
+    currentMaxLevel = OrionIntegerField()
+    currentTotalPoints = OrionIntegerField()
+    gender = OrionCharField(max_length=10)
+    latestLevelPlayed = OrionIntegerField()
+    municipalityName = OrionCharField(max_length=50)
+
 
 
 

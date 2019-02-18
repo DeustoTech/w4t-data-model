@@ -109,3 +109,7 @@ class KeyPerformanceIndicator(FamilyOrionEntity):
         max_length=1024, blank=True,
         help_text="For organizational purposes, it allows to add extra textual geographical information such as "
                   "district, borough, or any other hint which can help to identify the KPI coverage.")
+
+
+class ZKPI(KeyPerformanceIndicator):
+    pass
