@@ -70,17 +70,4 @@ class Strategy(OrionEntity):
     resultsFeedback = OrionTextField()
 
 
-class SortingGameUserMetrics(OrionEntity):
-
-    age = OrionIntegerField()
-    allTimeLevelsPlayed = OrionIntegerField()
-    countryISO = OrionCharField(max_length=10)
-    currentMaxLevel = OrionIntegerField()
-    currentTotalPoints = OrionIntegerField()
-    gender = OrionCharField(max_length=10)
-    latestLevelPlayed = OrionIntegerField()
-    municipalityName = OrionCharField(max_length=50)
-
-
-
 

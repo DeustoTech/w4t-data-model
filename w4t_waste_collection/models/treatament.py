@@ -28,7 +28,7 @@ class WasteTransaction(Transaction):
         return sum(
             resource["amount"]
             for resource in self.receivedResources
-            if resource["refResource"] in ["Resource:infant_nappies ", "Resource:adult_nappies"]
+            if resource["refResource"] in ["Resource:infant_nappies", "Resource:adult_nappies"]
         )
 
     @property
@@ -37,7 +37,7 @@ class WasteTransaction(Transaction):
         return sum(
             resource["amount"]
             for resource in self.emittedResources
-            if resource["refResource"] in ["Resource:compost ", ]
+            if resource["refResource"] in ["Resource:compost", ]
         )
 
     @property
@@ -45,7 +45,7 @@ class WasteTransaction(Transaction):
         """Add all amounts of received resources. """
         return sum(
             resource["amount"]
-            for resource in self.refEmitter
+            for resource in self.emittedResources
             if resource["refResource"] in ["Resource:biogas_stp", ]
         )
 
