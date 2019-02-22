@@ -47,7 +47,12 @@ class Action(OrionEntity):
             "6": "PAYT",
             "7": "Zero Waste Ecosystems",
             "23": "Zero Waste Events",
-            "8": "Miscellaneous"
+            "8": "Miscellaneous",
+            "15": "Educational Centers Activities",
+            "16": "Actions at Technical University",
+            "17": "Food Separate Collection and Treatment",
+            "18": "Commercial Activities Campaign",
+            "19": "Collection of Nappies"
         }
         
         return strategies[self.refStrategy.split(":")[1]]
