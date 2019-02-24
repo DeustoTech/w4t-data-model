@@ -41,18 +41,28 @@ class Action(OrionEntity):
             "1": "General sensitization Campaign",
             "2": "Education Centers Actions",
             "3": "Food Waste Prevention Campaign",
-
             "4": "Commercial Activities Campaign",
             "5": "Composting",
             "6": "PAYT",
             "7": "Zero Waste Ecosystems",
-            "23": "Zero Waste Events",
+
             "8": "Miscellaneous",
+            "9": "Citizens' Sensitization - Funny Door to Door Sensitization",
+            "10": "Zero Waste Campaigns -Virtuous Households",
+            "11": "Zero Waste Events",
+            "12": "PAYT Introduction - Communication",
+            "13": "Promotion Campaign of Reusable Nappies",
+            "14": "Reusable Nappies Campaign - Nursery Schools",
+
             "15": "Educational Centers Activities",
             "16": "Actions at Technical University",
             "17": "Food Separate Collection and Treatment",
             "18": "Commercial Activities Campaign",
-            "19": "Collection of Nappies"
+            "19": "Collection of Nappies",
+            "20": "ID/PAYT Containers System",
+            "21": "Tourist Engagement",
+            "22": "Waste4Think Schools",
+            "23": "Zero Waste Events",
         }
         
         return strategies[self.refStrategy.split(":")[1]]
