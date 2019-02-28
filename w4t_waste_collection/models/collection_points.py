@@ -1,7 +1,7 @@
 """ Models to manage the Waste Collection points
 """
 from logging import getLogger
-from django_orion_model.fields import OrionIntegerField, OrionURLField, OrionCharField, OrionTextField, \
+from django_orion_model.models.fields import OrionIntegerField, OrionURLField, OrionCharField, OrionTextField, \
     OrionFloatField, OrionDateTimeField, OrionDecimalField, OrionCoordinatesField, OrionRefList, OrionRef
 from w4t_waste_collection.models.entities import Agent, AgentType
 

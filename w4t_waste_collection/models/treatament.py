@@ -19,7 +19,8 @@ class WasteTransaction(Transaction):
         return sum(
             resource["amount"]
             for resource in self.receivedResources
-            if resource["refResource"] in ["Resource:fruits_vegetables", "Resource:edible_starchy", "Resource:edible_animal"]
+            if resource["refResource"] in
+            ["Resource:fruits_vegetables", "Resource:edible_starchy", "Resource:edible_animal"]
         )
 
     @property
@@ -57,7 +58,6 @@ class WasteTransaction(Transaction):
             for resource in self.receivedResources
             if resource["refResource"] in ["Resource:hfw", ]
         )
-
 
     @property
     def energy_consumption_sum(self):

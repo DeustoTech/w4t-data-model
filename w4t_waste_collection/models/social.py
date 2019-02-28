@@ -1,8 +1,8 @@
 from django.utils.safestring import SafeString
 
-from django_orion_model.fields import OrionCharField, OrionTextField, OrionDecimalField, \
-    OrionDateTimeField, OrionBooleanField, OrionRef, OrionRefList, OrionURLField, OrionIntegerField
-from django_orion_model.models import OrionEntity
+from django_orion_model.models.fields import OrionCharField, OrionTextField, OrionDecimalField, \
+    OrionDateTimeField, OrionBooleanField, OrionRef, OrionRefList, OrionURLField
+from django_orion_model.models.entities import OrionEntity
 
 
 class Action(OrionEntity):
@@ -83,6 +83,3 @@ class Strategy(OrionEntity):
     refWasteStages = OrionRefList()
     refWasteStreams = OrionRefList()
     resultsFeedback = OrionTextField()
-
-
-

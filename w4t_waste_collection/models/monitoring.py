@@ -1,6 +1,6 @@
-from django_orion_model.fields import OrionCharField, OrionFloatField, OrionDateTimeField, OrionCoordinatesField, \
-    OrionIntegerField
-from django_orion_model.models import FamilyOrionEntity, OrionEntity
+from django_orion_model.models.fields import OrionCharField, OrionFloatField, OrionDateTimeField, \
+    OrionCoordinatesField, OrionIntegerField
+from django_orion_model.models.entities import FamilyOrionEntity, OrionEntity
 
 
 class KeyPerformanceIndicator(FamilyOrionEntity):
@@ -126,7 +126,3 @@ class sortingGameUserMetrics(OrionEntity):
     gender = OrionCharField(max_length=10)
     latestLevelPlayed = OrionIntegerField()
     municipalityName = OrionCharField(max_length=50)
-
-    
-
-

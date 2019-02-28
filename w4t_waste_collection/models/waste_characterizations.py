@@ -1,8 +1,7 @@
 """ Models to manage the Waste elements
 """
 from w4t_waste_collection.models.entities import Resource, ResourceCategory, ResourceCollection
-from django_orion_model.fields import OrionCharField, OrionTextField, OrionRefList, OrionRef, \
-    OrionJSONField, OrionDateTimeField
+from django_orion_model.models.fields import OrionCharField, OrionTextField, OrionJSONField, OrionDateTimeField
 # TODO Name Translation see https://django-modeltranslation.readthedocs.io/en/latest/installation.html#setup
 
 

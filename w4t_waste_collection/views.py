@@ -2,28 +2,25 @@ from django import forms
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView, CreateView
 
-from w4t_waste_collection.models.kpi import KPI
-
-
-# Create your views here.
+from w4t_waste_collection.models.monitoring import KeyPerformanceIndicator
 
 
 class KPIEditingForm(forms.ModelForm):
     class Meta:
-        model = KPI
+        model = KeyPerformanceIndicator
         exclude = ['orion_type', 'orion_data', 'service_path', 'updated', 'expiration', 'status', 'error']
 
 
 class KPIListView(ListView):
-    model = KPI
+    model = KeyPerformanceIndicator
 
 
 class KPIDetailView(DetailView):
-    model = KPI
+    model = KeyPerformanceIndicator
 
 
 class CreateKpiView(CreateView):
-    model = KPI
+    model = KeyPerformanceIndicator
     form_class = KPIEditingForm
 
     success_url = reverse_lazy('kpi_list')
@@ -31,7 +28,7 @@ class CreateKpiView(CreateView):
     def form_valid(self, form):
         response = super().form_valid(form)
         # Check if everything had gone OK with orion
-        if self.object.status == KPI.STATUS_OK:
+        if self.object.status == KeyPerformanceIndicator.STATUS_OK:
             return response
         else:
             # Clean the mess and return a error response
@@ -41,11 +38,11 @@ class CreateKpiView(CreateView):
 
 
 class ListKpiView(ListView):
-    model = KPI
+    model = KeyPerformanceIndicator
 
 
 class FetchKPIView(CreateView):
-    model = KPI
+    model = KeyPerformanceIndicator
     fields = ["orion_id"]
 
     success_url = reverse_lazy('kpi_list')
@@ -57,16 +54,10 @@ class FetchKPIView(CreateView):
     def form_valid(self, form):
         response = super().form_valid(form)
         # Check if everything had gone OK with orion
-        if self.object.status == KPI.STATUS_OK:
+        if self.object.status == KeyPerformanceIndicator.STATUS_OK:
             return response
         else:
             # Clean the mess and return a error response
             form.add_error(None, self.object.error)
             self.object.delete()
             return self.form_invalid(form)
-
-
-
-
-
-

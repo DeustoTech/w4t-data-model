@@ -1,6 +1,6 @@
-from django_orion_model.models import FamilyOrionEntity
-from django_orion_model.fields import OrionCoordinatesField, OrionTextField, OrionCharField, OrionRef, OrionRefList, \
-    OrionDateTimeField, OrionListField
+from django_orion_model.models.entities import FamilyOrionEntity
+from django_orion_model.models.fields import OrionCoordinatesField, OrionTextField, OrionCharField, OrionRef, \
+    OrionRefList, OrionDateTimeField, OrionListField
 
 
 class Agent(FamilyOrionEntity):
