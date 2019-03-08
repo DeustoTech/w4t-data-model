@@ -2,7 +2,7 @@ from django import forms
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView, CreateView
 
-from w4t_waste_collection.models.monitoring import KeyPerformanceIndicator
+from w4t_data_model.models.monitoring import KeyPerformanceIndicator
 
 
 class KPIEditingForm(forms.ModelForm):

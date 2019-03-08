@@ -1,4 +1,4 @@
-from w4t_waste_collection.models.entities import Agent, AgentType, Transaction
+from w4t_data_model.models.entities import Agent, AgentType, Transaction
 
 
 class TreatmentPlant(Agent):

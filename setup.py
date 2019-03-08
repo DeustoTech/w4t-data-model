@@ -20,7 +20,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 
 setup(
     name='w4t-data-model',
-    version='0.8',
+    version='0.81',
     description='A django model to manage Waste4Think waste collection data.',
 
     long_description=long_description,
