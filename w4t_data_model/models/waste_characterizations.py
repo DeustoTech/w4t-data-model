@@ -32,7 +32,7 @@ class SortingType(ResourceCollection):
         max_length=1024, blank=True,
         help_text="Attribute reserved for annotations (incidences, remarks, etc.)")
     wasteCharacterization = OrionJSONField(
-        blank=True,
+        blank=True, null=True,
         help_text="{wasteCategory_X : {amount: X, unit: KGM}, WasteCategory_Y : {amount: Y, unit: KGM}...}...}")
     wasteCharacterizationTime = OrionDateTimeField(
         blank=True,
