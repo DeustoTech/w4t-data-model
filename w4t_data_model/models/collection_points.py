@@ -63,8 +63,8 @@ class DepositPointIsle(Agent):
 
     refDepositPoints = OrionRefList()
     areaServed = OrionCharField(blank=True, max_length=1024)
-    dateModified = OrionDateTimeField(blank=True)
-    dateCreated = OrionDateTimeField(blank=True)
+    dateModified = OrionDateTimeField(blank=True, null=True)
+    dateCreated = OrionDateTimeField(blank=True, null=True)
 
 
 class DepositPoint(Agent):
@@ -85,21 +85,21 @@ class DepositPoint(Agent):
     responsible = OrionCharField(max_length=1024)
     owner = OrionCharField(max_length=1024)
 
-    dateServiceStarted = OrionDateTimeField(blank=True)
-    dateLastEmptying = OrionDateTimeField(blank=True)
-    nextActuationDeadline = OrionDateTimeField(blank=True)
+    dateServiceStarted = OrionDateTimeField(blank=True, null=True)
+    dateLastEmptying = OrionDateTimeField(blank=True, null=True)
+    nextActuationDeadline = OrionDateTimeField(blank=True, null=True)
 
     # http://schema.org/openingHours
     actuationHours = OrionCharField(blank=True, max_length=1024)
     openingHours = OrionCharField(blank=True, max_length=1024)
 
-    dateLastCleaning = OrionDateTimeField(blank=True)
-    nextCleaningDeadline = OrionDateTimeField(blank=True)
+    dateLastCleaning = OrionDateTimeField(blank=True, null=True)
+    nextCleaningDeadline = OrionDateTimeField(blank=True, null=True)
 
     status = OrionCharField(blank=True, max_length=1024)
     color = OrionCharField(blank=True, max_length=1024)
     image = OrionURLField(blank=True)
     annotations = OrionTextField(blank=True)
     areaServed = OrionCharField(blank=True, max_length=1024)
-    dateModified = OrionDateTimeField(blank=True)
+    dateModified = OrionDateTimeField(blank=True, null=True)
     refDevice = OrionRef(blank=True)

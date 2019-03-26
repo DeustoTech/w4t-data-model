@@ -55,7 +55,7 @@ class Transaction(FamilyOrionEntity):
         help_text="JSON ARRAY [{ refResource : resourceID_X , amount : amount1 , unit : 'KGM' , ... },"
                   "{ refResource : resourceID_X , amount : amount2 , unit :'KGM' , ... },... ]")
     incorrect = OrionDateTimeField(
-        blank=True,
+        blank=True, null=True,
         help_text="Default to null or nor existing. In order not to delete any transaction, If one is incorrect to mark"
                   " it as incorrect and do not use it in calculations. But keep it in the database to know.")
     incorrectReason = OrionTextField(

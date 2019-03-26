@@ -35,7 +35,7 @@ class SortingType(ResourceCollection):
         blank=True, null=True,
         help_text="{wasteCategory_X : {amount: X, unit: KGM}, WasteCategory_Y : {amount: Y, unit: KGM}...}...}")
     wasteCharacterizationTime = OrionDateTimeField(
-        blank=True,
+        blank=True, null=True,
         help_text="Timestamp at which the wasteCharacterization field was updated")
     area_served = OrionCharField(
         max_length=1024, blank=True,
