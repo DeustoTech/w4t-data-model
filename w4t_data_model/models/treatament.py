@@ -20,7 +20,7 @@ class WasteTransaction(Transaction):
             resource["amount"]
             for resource in self.receivedResources
             if resource["refResource"] in
-            ["Resource:fruits_vegetables", "Resource:edible_starchy", "Resource:edible_animal"]
+            ["Waste:129", "Waste:957", "Waste:73"]
         )
 
     @property
@@ -29,7 +29,7 @@ class WasteTransaction(Transaction):
         return sum(
             resource["amount"]
             for resource in self.receivedResources
-            if resource["refResource"] in ["Resource:infant_nappies", "Resource:adult_nappies"]
+            if resource["refResource"] in ["Waste:955", "Waste:956"]
         )
 
     @property
