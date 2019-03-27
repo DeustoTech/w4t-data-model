@@ -56,7 +56,7 @@ class WasteTransaction(Transaction):
         return sum(
             resource["amount"]
             for resource in self.receivedResources
-            if resource["refResource"] in ["Resource:hfw", ]
+            if resource["refResource"] in ["Waste:958", ]
         )
 
     @property
