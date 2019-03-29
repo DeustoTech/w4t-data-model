@@ -1,6 +1,7 @@
 from django_orion_model.models.fields import OrionCharField, OrionFloatField, OrionDateTimeField, \
     OrionCoordinatesField, OrionIntegerField
 from django_orion_model.models.entities import FamilyOrionEntity, OrionEntity
+from w4t_data_model.models.entities import Agent
 
 
 class KeyPerformanceIndicator(FamilyOrionEntity):
@@ -117,7 +118,6 @@ class ZKPI(KeyPerformanceIndicator):
 
 
 class sortingGameUserMetrics(OrionEntity):
-
     age = OrionIntegerField()
     allTimeLevelsPlayed = OrionIntegerField()
     countryISO = OrionCharField(max_length=10)
@@ -126,3 +126,7 @@ class sortingGameUserMetrics(OrionEntity):
     gender = OrionCharField(max_length=10)
     latestLevelPlayed = OrionIntegerField()
     municipalityName = OrionCharField(max_length=50)
+
+
+class User(Agent):
+    pass

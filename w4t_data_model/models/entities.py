@@ -12,7 +12,9 @@ class Agent(FamilyOrionEntity):
     address = OrionTextField(blank=True)
     name = OrionCharField(max_length=1024)
     refType = OrionRef()
-
+    refInputs = OrionRefList()
+    refOutputs = OrionRefList()
+    refAgentCollection = OrionRef()
     # Not included any optional attributes define them into subclasses
 
     class Meta:
