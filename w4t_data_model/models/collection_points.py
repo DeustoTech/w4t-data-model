@@ -77,7 +77,7 @@ class DepositPoint(Agent):
     refSortingType = OrionRef()
     description = OrionTextField(blank=True,)
     storedWasteOrigin = OrionCharField(blank=True, max_length=1024)
-    fillingLevel = OrionDecimalField(max_digits=2, decimal_places=1, blank=True)
+    fillingLevel = OrionFloatField(blank=True)
     cargoWeight = OrionFloatField(blank=True)
     temperature = OrionFloatField(blank=True)
     methaneConcentration = OrionFloatField(blank=True)
