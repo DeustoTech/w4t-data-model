@@ -12,7 +12,7 @@ class Waste(Resource):
     definitionSource = OrionTextField(
         blank=True,
         help_text="Where this characterization comes from")
-    wasteCode = OrionCharField(
+    image = OrionCharField(
         max_length=2048, blank=True,
         help_text="Image for this waste.")
 
