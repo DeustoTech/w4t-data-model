@@ -1,5 +1,6 @@
 """ Models to manage the Waste elements
 """
+from django_orion_model.models.translation import ModelTranslationOrionEntity
 from w4t_data_model.models.entities import Resource, ResourceCategory, ResourceCollection
 from django_orion_model.models.fields import OrionCharField, OrionTextField, OrionJSONField, OrionDateTimeField
 # TODO Name Translation see https://django-modeltranslation.readthedocs.io/en/latest/installation.html#setup
@@ -44,3 +45,18 @@ class SortingType(ResourceCollection):
         max_length=1024, blank=True,
         help_text="Higher level area to which the sorting type belongs to. It can be used to define the "
                   "area where the sorting type is applied, etc.")
+
+
+class TranslatedWaste(ModelTranslationOrionEntity, Waste):
+    CLASS_ORION_TYPE = "Waste"
+    pass
+
+
+class TranslatedWasteCategory(ModelTranslationOrionEntity, WasteCategory):
+    CLASS_ORION_TYPE = "WasteCategory"
+    pass
+
+
+class TranslatedSortingType(ModelTranslationOrionEntity, SortingType):
+    CLASS_ORION_TYPE = "SortingType"
+    pass

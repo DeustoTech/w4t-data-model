@@ -73,20 +73,10 @@ class Resource(FamilyOrionEntity):
     name = OrionCharField(
         max_length=1024,
         help_text="Waste Name. Example 'Green glass bottle'")
-    # name:en = OrionCharField(help_text="Name english", blank=True)
-    # name:es = OrionCharField(help_text="Name spanish", blank=True)
-    # name:it = OrionCharField(help_text="Name italian", blank=True)
-    # name:pt = OrionCharField(help_text="Name portuguese", blank=True)
-    # name:eus = OrionCharField(help_text="Name basque", blank=True)
-    # name:gr = OrionCharField(help_text="Name greek", blank=True)
+
     description = OrionTextField(
         help_text="Waste help_text. Example 'Bottle made of green glass'", blank=True)
-    # description:en = OrionTextField(help_text="help_text english", blank=True)
-    # description:es = OrionTextField(help_text="help_text spanish", blank=True)
-    # description:it = OrionTextField(help_text="help_text italian", blank=True)
-    # description:pt = OrionTextField(help_text="help_text portuguese", blank=True)
-    # description:eus = OrionTextField(help_text="help_text basque", blank=True)
-    # description:gr = OrionTextField(help_text="help_text greek", blank=True)
+
     refCategory = OrionRef(
         help_text="Reference to category entity this belongs. Example [wastecategory:9[]")
 
@@ -97,21 +87,11 @@ class ResourceCategory(FamilyOrionEntity):
     name = OrionCharField(
         max_length=1024, blank=True,
         help_text="WasteCategory Name. Example 'Glass bottles'", )
-    # name:en = OrionCharField(help_text="Name english", blank=True)
-    # name:es = OrionCharField(help_text="Name spanish", blank=True)
-    # name:it = OrionCharField(help_text="Name italian", blank=True)
-    # name:pt = OrionCharField(help_text="Name portuguese", blank=True)
-    # name:eus = OrionCharField(help_text="Name basque", blank=True)
-    # name:gr = OrionCharField(help_text="Name greek", blank=True)
+
     description = OrionTextField(
         max_length=1024, blank=True,
         help_text="WasteCategory description. Example 'Glass bottles including whiteand green glass'")
-    # description:en = OrionTextField(help_text="help_text english", blank=True)
-    # description:es = OrionTextField(help_text="help_text spanish", blank=True)
-    # description:it = OrionTextField(help_text="help_text italian", blank=True)
-    # description:pt = OrionTextField(help_text="help_text portuguese", blank=True)
-    # description:eus = OrionTextField(help_text="help_text basque", blank=True)
-    # description:gr = OrionTextField(help_text="help_text greek", blank=True)
+
     ref_resources = OrionRefList(
         help_text="List of waste entities composing the ResourceCategory. Example [waste:6, waste:18]")
 
@@ -121,20 +101,9 @@ class ResourceCollection(FamilyOrionEntity):
 
     name = OrionCharField(max_length=1024, blank=True,
                           help_text="SortingType Name. Example 'Color Glass collection'")
-    # name:en = OrionCharField(help_text="Name english", blank=True)
-    # name:es = OrionCharField(help_text="Name spanish", blank=True)
-    # name:it = OrionCharField(help_text="Name italian", blank=True)
-    # name:pt = OrionCharField(help_text="Name portuguese", blank=True)
-    # name:eus = OrionCharField(help_text="Name basque", blank=True)
-    # name:gr = OrionCharField(help_text="Name greek", blank=True)
     description = OrionTextField(max_length=1024, blank=True,
                                  help_text="SortingType description. Example 'Collection of colored glass bottles'")
-    # description:en = OrionTextField(help_text="help_text english", blank=True)
-    # description:es = OrionTextField(help_text="help_text spanish", blank=True)
-    # description:it = OrionTextField(help_text="help_text italian", blank=True)
-    # description:pt = OrionTextField(help_text="help_text portuguese", blank=True)
-    # description:eus = OrionTextField(help_text="help_text basque", blank=True)
-    # description:gr = OrionTextField(help_text="help_text greek", blank=True)
+
     regulation = OrionCharField(
         max_length=1024, blank=True)
     refResources = OrionRefList(
