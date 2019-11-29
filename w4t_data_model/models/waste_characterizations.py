@@ -7,6 +7,8 @@ from django_orion_model.models.fields import OrionCharField, OrionTextField, Ori
 
 
 class Waste(Resource):
+    ORION_TYPE = "Waste"
+
     wasteCode = OrionCharField(
         max_length=1024, blank=True,
         help_text="LER waste code.")
@@ -19,10 +21,11 @@ class Waste(Resource):
 
 
 class WasteCategory(ResourceCategory):
-    pass
+    ORION_TYPE = "WasteCategory"
 
 
 class SortingType(ResourceCollection):
+    ORION_TYPE = "SortingType"
 
     shape = OrionCharField(
         max_length=1024, blank=True,
@@ -48,15 +51,15 @@ class SortingType(ResourceCollection):
 
 
 class TranslatedWaste(ModelTranslationOrionEntity, Waste):
-    CLASS_ORION_TYPE = "Waste"
+    ORION_TYPE = "Waste"
     pass
 
 
 class TranslatedWasteCategory(ModelTranslationOrionEntity, WasteCategory):
-    CLASS_ORION_TYPE = "WasteCategory"
+    ORION_TYPE = "WasteCategory"
     pass
 
 
 class TranslatedSortingType(ModelTranslationOrionEntity, SortingType):
-    CLASS_ORION_TYPE = "SortingType"
+    ORION_TYPE = "SortingType"
     pass
