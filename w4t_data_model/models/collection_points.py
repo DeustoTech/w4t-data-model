@@ -44,7 +44,7 @@ class DepositPointType(AgentType):
     userIdentification = OrionCharField(blank=True, max_length=1024,
                                         choices=(("nfc", "nfc"), ("rfid", "rfid"), ("qr code", "qr code")))
     inputControl = OrionCharField(blank=True, max_length=1024,
-                                  choices=(("chamber", "chamber"), ("weight", "weight"), ("volume", "volume")))
+                                  choices=(("chamber", "chamber"), ("weight", "weight"), ("parent_volume", "parent_volume")))
     maximumInputVolume = OrionFloatField(blank=True)
     # maximumInputVolume_meta = OrionCharField(blank=True)
     # Set to json
