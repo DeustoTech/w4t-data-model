@@ -2,17 +2,17 @@ from w4t_data_model.models.entities import Agent, AgentType, Transaction
 
 
 class TreatmentPlant(Agent):
-    ORION_TYPE = "TreatmentPlant"
+    CLASS_ORION_TYPE = "TreatmentPlant"
 
 
 class TreatmentPlantType(AgentType):
-    ORION_TYPE = "TreatmentPlantType"
+    CLASS_ORION_TYPE = "TreatmentPlantType"
 
 
 class WasteTransaction(Transaction):
     """ Waste movements."""
     additional_fields = ["received_sum", "emitted_sum"]
-    ORION_TYPE = "WasteTransaction"
+    CLASS_ORION_TYPE = "WasteTransaction"
 
     @property
     def biowaste_sum(self):
